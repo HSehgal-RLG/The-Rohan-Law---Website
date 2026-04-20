@@ -24,6 +24,11 @@ export const metadata: Metadata = {
       "The Rohan Law Group — business, real estate, and technology transactional law in Albany, New York. Three decades of trusted counsel.",
     images: [],
   },
+  robots: {
+    index: false,
+    follow: false,
+    noimageindex: true,
+  },
 };
 
 export default function RootLayout({
