@@ -39,12 +39,3 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
-
-# website images
-/public/brian-rohan.jpeg
-/public/hero-bg.jpeg
-/public/logo-white.png
-/public/logo-color.png
-/public/logo.svg
-Brian's Image .jpeg
-Main Page Picture.jpeg
