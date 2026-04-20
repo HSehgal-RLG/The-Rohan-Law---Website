@@ -18,6 +18,12 @@ export const metadata: Metadata = {
   title: "The Rohan Law Group | Albany, NY",
   description:
     "The Rohan Law Group — business, real estate, and technology transactional law in Albany, New York. Three decades of trusted counsel.",
+  openGraph: {
+    title: "The Rohan Law Group | Albany, NY",
+    description:
+      "The Rohan Law Group — business, real estate, and technology transactional law in Albany, New York. Three decades of trusted counsel.",
+    images: [],
+  },
 };
 
 export default function RootLayout({
