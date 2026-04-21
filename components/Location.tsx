@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { MapPin, ExternalLink } from "lucide-react";
 import { FadeUp, SlideInLeft, SlideInRight, StaggerContainer, StaggerItem } from "@/components/ui/animate";
 
@@ -9,10 +10,12 @@ const offices = [
     name: "The Rohan Law Group",
     address: "18 Computer Drive West, Suite 100",
     city: "Colonie, New York 12205",
+    phone: "(518) 438-0010",
+    phoneHref: "tel:+15184380010",
+    fax: "(518) 438-0030",
     mapsUrl:
       "https://maps.google.com/?q=18+Computer+Drive+West+Suite+100+Colonie+New+York+12205",
-    embedUrl:
-      "https://maps.google.com/maps?q=18+Computer+Drive+West,+Suite+100,+Colonie,+NY+12205&output=embed&z=15",
+    photo: "/office-colonie.jpg",
   },
   {
     label: "Satellite Office",
@@ -24,8 +27,7 @@ const offices = [
     fax: "(518) 306-4518",
     note: "By Appointment Only",
     mapsUrl: "https://maps.google.com/?q=125+High+Rock+Avenue+Saratoga+Springs+New+York+12866",
-    embedUrl:
-      "https://maps.google.com/maps?q=125+High+Rock+Avenue,+Saratoga+Springs,+NY+12866&output=embed&z=15",
+    photo: "/office-saratoga.webp",
   },
   {
     label: "Satellite Office",
@@ -37,8 +39,7 @@ const offices = [
     fax: "(518) 338-3983",
     note: "By Appointment Only",
     mapsUrl: "https://maps.google.com/?q=333+Glen+Street+Glens+Falls+New+York+12801",
-    embedUrl:
-      "https://maps.google.com/maps?q=333+Glen+Street,+Glens+Falls,+NY+12801&output=embed&z=15",
+    photo: "/office-glensfalls.avif",
   },
 ];
 
@@ -68,8 +69,8 @@ export default function Location() {
           </FadeUp>
         </div>
 
-        {/* Principal office — full-width with map */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center mb-14">
+        {/* Principal office */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center mb-16">
           <SlideInLeft>
             <span className="inline-block text-[0.65rem] uppercase tracking-widest font-sans text-white bg-maroon px-2.5 py-1 mb-4">
               Principal Office
@@ -101,16 +102,13 @@ export default function Location() {
           </SlideInLeft>
 
           <SlideInRight>
-            <div className="rounded-xl overflow-hidden shadow-md border border-gray-200 h-64 md:h-80">
-              <iframe
-                src={offices[0].embedUrl}
-                width="100%"
-                height="100%"
-                style={{ border: 0 }}
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                title="The Rohan Law Group — Principal Office"
+            <div className="relative rounded-xl overflow-hidden shadow-md border border-gray-200 h-72 md:h-96">
+              <Image
+                src={offices[0].photo}
+                alt="18 Computer Drive West — Principal Office"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 50vw"
               />
             </div>
           </SlideInRight>
@@ -125,21 +123,18 @@ export default function Location() {
             <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {offices.slice(1).map((office) => (
                 <StaggerItem key={office.name}>
-                  <div className="flex flex-col gap-4">
-                    <div className="rounded-xl overflow-hidden shadow-sm border border-gray-200 h-52">
-                      <iframe
-                        src={office.embedUrl}
-                        width="100%"
-                        height="100%"
-                        style={{ border: 0 }}
-                        allowFullScreen
-                        loading="lazy"
-                        referrerPolicy="no-referrer-when-downgrade"
-                        title={`The Rohan Law Group — ${office.name}`}
+                  <div className="bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100">
+                    <div className="relative h-56">
+                      <Image
+                        src={office.photo}
+                        alt={`${office.address} — ${office.name}`}
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 768px) 100vw, 50vw"
                       />
                     </div>
-                    <div className="border-l-2 border-navy/20 pl-4">
-                      <div className="flex items-center gap-2 mb-0.5">
+                    <div className="p-5 border-l-2 border-navy/20 ml-0">
+                      <div className="flex items-center gap-2 mb-1">
                         <p className="font-serif text-navy text-base font-semibold">
                           {office.name}
                         </p>
