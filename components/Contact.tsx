@@ -31,12 +31,25 @@ export default function Contact() {
     e.preventDefault();
     setStatus("submitting");
     const form = e.currentTarget;
-    const data = new FormData(form);
+    const els = form.elements as HTMLFormControlsCollection & {
+      name: HTMLInputElement;
+      email: HTMLInputElement;
+      subject: HTMLInputElement;
+      message: HTMLTextAreaElement;
+    };
     try {
       const res = await fetch("https://formspree.io/f/xwvarqpw", {
         method: "POST",
-        body: data,
-        headers: { Accept: "application/json" },
+        body: JSON.stringify({
+          name: els.name.value,
+          email: els.email.value,
+          subject: els.subject.value,
+          message: els.message.value,
+        }),
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
       });
       if (res.ok) {
         setStatus("success");
