@@ -10,10 +10,12 @@ function countWords(text: string) {
   return text.trim() === "" ? 0 : text.trim().split(/\s+/).length;
 }
 
+type Status = "idle" | "submitting" | "success" | "error";
+
 export default function Contact() {
   const [inquiry, setInquiry] = useState("");
+  const [status, setStatus] = useState<Status>("idle");
   const wordCount = countWords(inquiry);
-  const atLimit = wordCount >= MAX_WORDS;
 
   function handleInquiryChange(e: React.ChangeEvent<HTMLTextAreaElement>) {
     const val = e.target.value;
@@ -21,13 +23,31 @@ export default function Contact() {
     if (words.length <= MAX_WORDS) {
       setInquiry(val);
     } else {
-      // allow editing within existing words but prevent adding more
       setInquiry(words.slice(0, MAX_WORDS).join(" "));
     }
   }
 
-  function handleSubmit(e: { preventDefault: () => void }) {
+  async function handleSubmit(e: React.SyntheticEvent<HTMLFormElement>) {
     e.preventDefault();
+    setStatus("submitting");
+    const form = e.currentTarget;
+    const data = new FormData(form);
+    try {
+      const res = await fetch("https://formspree.io/f/xwvarqpw", {
+        method: "POST",
+        body: data,
+        headers: { Accept: "application/json" },
+      });
+      if (res.ok) {
+        setStatus("success");
+        form.reset();
+        setInquiry("");
+      } else {
+        setStatus("error");
+      }
+    } catch {
+      setStatus("error");
+    }
   }
 
   return (
@@ -151,79 +171,99 @@ export default function Contact() {
           {/* Right — form */}
           <SlideInRight>
             <div className="bg-white rounded-xl p-7 shadow-sm border border-gray-100">
-              <form onSubmit={handleSubmit} className="space-y-5">
-                <div>
-                  <label htmlFor="name" className="block text-xs font-medium text-navy uppercase tracking-wide mb-1.5 font-sans">
-                    Your Name
-                  </label>
-                  <input
-                    id="name"
-                    type="text"
-                    placeholder="Jane Smith"
-                    className="w-full border border-gray-200 rounded-md px-4 py-2.5 text-navy text-sm font-sans bg-white focus:outline-none focus:ring-2 focus:ring-maroon/30 focus:border-maroon/50 transition-all placeholder:text-navy/30"
-                    required
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="email" className="block text-xs font-medium text-navy uppercase tracking-wide mb-1.5 font-sans">
-                    Email Address
-                  </label>
-                  <input
-                    id="email"
-                    type="email"
-                    placeholder="jane@example.com"
-                    className="w-full border border-gray-200 rounded-md px-4 py-2.5 text-navy text-sm font-sans bg-white focus:outline-none focus:ring-2 focus:ring-maroon/30 focus:border-maroon/50 transition-all placeholder:text-navy/30"
-                    required
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="subject" className="block text-xs font-medium text-navy uppercase tracking-wide mb-1.5 font-sans">
-                    Subject
-                  </label>
-                  <input
-                    id="subject"
-                    type="text"
-                    placeholder="Business matter, real estate question…"
-                    className="w-full border border-gray-200 rounded-md px-4 py-2.5 text-navy text-sm font-sans bg-white focus:outline-none focus:ring-2 focus:ring-maroon/30 focus:border-maroon/50 transition-all placeholder:text-navy/30"
-                  />
-                </div>
-
-                <div>
-                  <div className="flex items-baseline justify-between mb-1.5">
-                    <label htmlFor="message" className="block text-xs font-medium text-navy uppercase tracking-wide font-sans">
-                      Nature of Your Inquiry
-                    </label>
-                    <span className={`text-[0.65rem] font-sans tabular-nums ${wordCount >= MAX_WORDS ? "text-maroon font-semibold" : "text-navy/35"}`}>
-                      {wordCount} / {MAX_WORDS} words
-                    </span>
-                  </div>
-                  <textarea
-                    id="message"
-                    rows={4}
-                    value={inquiry}
-                    onChange={handleInquiryChange}
-                    placeholder="Please briefly outline the nature of your matter and why you are seeking a consultation. Do not include any confidential, sensitive, or privileged information at this stage."
-                    className="w-full border border-gray-200 rounded-md px-4 py-2.5 text-navy text-sm font-sans bg-white focus:outline-none focus:ring-2 focus:ring-maroon/30 focus:border-maroon/50 transition-all placeholder:text-navy/30 resize-none"
-                    required
-                  />
-                  <p className="mt-2 text-navy/45 font-sans text-[0.68rem] leading-relaxed">
-                    Please limit your response to 50 words or fewer. Do not disclose any confidential or privileged information — this form is not a secure attorney-client communication.
+              {status === "success" ? (
+                <div className="py-10 text-center">
+                  <p className="font-serif text-navy text-xl mb-2">Message Received</p>
+                  <p className="text-navy/60 font-sans text-sm leading-relaxed">
+                    Thank you for reaching out. A member of our team will be in touch with you shortly.
                   </p>
                 </div>
+              ) : (
+                <form onSubmit={handleSubmit} className="space-y-5">
+                  <div>
+                    <label htmlFor="name" className="block text-xs font-medium text-navy uppercase tracking-wide mb-1.5 font-sans">
+                      Your Name
+                    </label>
+                    <input
+                      id="name"
+                      name="name"
+                      type="text"
+                      placeholder="Jane Smith"
+                      className="w-full border border-gray-200 rounded-md px-4 py-2.5 text-navy text-sm font-sans bg-white focus:outline-none focus:ring-2 focus:ring-maroon/30 focus:border-maroon/50 transition-all placeholder:text-navy/30"
+                      required
+                    />
+                  </div>
 
-                <button
-                  type="submit"
-                  className="w-full bg-maroon hover:bg-maroon-dark text-white py-3 text-xs uppercase tracking-widest transition-colors duration-200 font-sans"
-                >
-                  Send Message
-                </button>
+                  <div>
+                    <label htmlFor="email" className="block text-xs font-medium text-navy uppercase tracking-wide mb-1.5 font-sans">
+                      Email Address
+                    </label>
+                    <input
+                      id="email"
+                      name="email"
+                      type="email"
+                      placeholder="jane@example.com"
+                      className="w-full border border-gray-200 rounded-md px-4 py-2.5 text-navy text-sm font-sans bg-white focus:outline-none focus:ring-2 focus:ring-maroon/30 focus:border-maroon/50 transition-all placeholder:text-navy/30"
+                      required
+                    />
+                  </div>
 
-                <p className="text-center text-navy/40 font-sans text-[0.68rem] leading-relaxed">
-                  Submitting this form does not create an attorney-client relationship. Any information submitted prior to our engagement is not privileged or confidential.
-                </p>
-              </form>
+                  <div>
+                    <label htmlFor="subject" className="block text-xs font-medium text-navy uppercase tracking-wide mb-1.5 font-sans">
+                      Subject
+                    </label>
+                    <input
+                      id="subject"
+                      name="subject"
+                      type="text"
+                      placeholder="Business matter, real estate question…"
+                      className="w-full border border-gray-200 rounded-md px-4 py-2.5 text-navy text-sm font-sans bg-white focus:outline-none focus:ring-2 focus:ring-maroon/30 focus:border-maroon/50 transition-all placeholder:text-navy/30"
+                    />
+                  </div>
+
+                  <div>
+                    <div className="flex items-baseline justify-between mb-1.5">
+                      <label htmlFor="message" className="block text-xs font-medium text-navy uppercase tracking-wide font-sans">
+                        Nature of Your Inquiry
+                      </label>
+                      <span className={`text-[0.65rem] font-sans tabular-nums ${wordCount >= MAX_WORDS ? "text-maroon font-semibold" : "text-navy/35"}`}>
+                        {wordCount} / {MAX_WORDS} words
+                      </span>
+                    </div>
+                    <textarea
+                      id="message"
+                      name="message"
+                      rows={4}
+                      value={inquiry}
+                      onChange={handleInquiryChange}
+                      placeholder="Please briefly outline the nature of your matter and why you are seeking a consultation. Do not include any confidential, sensitive, or privileged information at this stage."
+                      className="w-full border border-gray-200 rounded-md px-4 py-2.5 text-navy text-sm font-sans bg-white focus:outline-none focus:ring-2 focus:ring-maroon/30 focus:border-maroon/50 transition-all placeholder:text-navy/30 resize-none"
+                      required
+                    />
+                    <p className="mt-2 text-navy/45 font-sans text-[0.68rem] leading-relaxed">
+                      Please limit your response to 50 words or fewer. Do not disclose any confidential or privileged information — this form is not a secure attorney-client communication.
+                    </p>
+                  </div>
+
+                  {status === "error" && (
+                    <p className="text-maroon font-sans text-xs text-center">
+                      Something went wrong. Please try again or call us directly.
+                    </p>
+                  )}
+
+                  <button
+                    type="submit"
+                    disabled={status === "submitting"}
+                    className="w-full bg-maroon hover:bg-maroon-dark disabled:opacity-60 text-white py-3 text-xs uppercase tracking-widest transition-colors duration-200 font-sans"
+                  >
+                    {status === "submitting" ? "Sending…" : "Send Message"}
+                  </button>
+
+                  <p className="text-center text-navy/40 font-sans text-[0.68rem] leading-relaxed">
+                    Submitting this form does not create an attorney-client relationship. Any information submitted prior to our engagement is not privileged or confidential.
+                  </p>
+                </form>
+              )}
             </div>
           </SlideInRight>
         </div>
