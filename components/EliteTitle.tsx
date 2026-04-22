@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { Card, CardContent } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { Mail, Shield } from "lucide-react";
@@ -11,28 +12,17 @@ const titleTeam = [
     title: "Title Administrator",
     email: "CBertasso@EliteTitleAndAbstract.com",
     bio: "Claudia oversees the firm's title operations, managing title searches, commitments, and insurance policies to ensure every transaction closes on a clear and insurable title.",
+    photo: "/staff-claudia.jpg",
   },
   {
     name: "Chelsea Warren",
     title: "Title Assistant",
     email: "CWarren@EliteTitleAndAbstract.com",
     bio: "Chelsea supports the title team with order coordination, document processing, and client communications, keeping every file moving efficiently from open to close.",
+    photo: "/staff-chelsea.jpg",
   },
 ];
 
-function PersonSilhouette() {
-  return (
-    <svg
-      viewBox="0 0 80 100"
-      className="w-16 h-20 text-gray-300"
-      fill="currentColor"
-      aria-hidden="true"
-    >
-      <circle cx="40" cy="30" r="20" />
-      <path d="M10 95 C10 68 70 68 70 95 Z" />
-    </svg>
-  );
-}
 
 export default function EliteTitle() {
   return (
@@ -136,8 +126,14 @@ export default function EliteTitle() {
           {titleTeam.map((member) => (
             <StaggerItem key={member.name}>
               <Card className="border border-white/10 bg-white/5 shadow-none hover:bg-white/10 transition-colors duration-200 rounded-lg overflow-hidden p-0 h-full">
-                <div className="aspect-[3/4] bg-white/5 flex items-center justify-center">
-                  <PersonSilhouette />
+                <div className="relative aspect-[3/4]">
+                  <Image
+                    src={member.photo}
+                    alt={member.name}
+                    fill
+                    className="object-cover object-top"
+                    sizes="(max-width: 640px) 100vw, 50vw"
+                  />
                 </div>
                 <CardContent className="p-5">
                   <h4 className="font-serif text-white text-base font-semibold leading-snug">
