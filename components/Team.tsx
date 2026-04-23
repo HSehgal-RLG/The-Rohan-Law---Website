@@ -30,7 +30,7 @@ const team = [
     name: "Huzaifah Sehgal",
     title: "Research Associate / Law Clerk",
     email: "HSehgal@RohanLaw.com",
-    photo: null,
+    photo: "/staff-huzaifah.jpg",
     bio: "Huzaifah supports the firm's legal research and analysis, with a focus on technology law, data privacy frameworks, and AI governance developments.",
     fullBio: null,
   },
