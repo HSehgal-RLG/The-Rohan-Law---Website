@@ -14,7 +14,7 @@ const team = [
     title: "Managing Partner",
     email: "BRohan@RohanLaw.com",
     photo: "/brian-rohan.jpeg",
-    bio: "Brian founded the firm in 1994 and leads its business and real estate transactional practice. He brings three decades of experience to every client engagement.",
+    bio: "Brian has been practicing law in the Capital Region for over thirty-five (35) years. The principal practice areas of his firm are Residential & Commercial Real Estate (Representation of Buyers, Sellers and Lenders) & Title Services; Business/Corporate Representation; and Estate Planning & Administration. Brian also has extensive prior work experience handling civil/commercial litigation and personal/business bankruptcy matters — the result is that he brings an extremely unique skill set to each and every transaction he handles. Brian prides himself on being extremely professional and courteous in all of his dealings, treating each and every client file as if it is the most important file on his desk at that moment. A more competent, focused, hard working, and — most importantly from a client's perspective — responsive legal advisor you will not find.",
     fullBio: {
       paragraphs: [
         "Brian has been practicing law in the Capital Region for over thirty-five (35) years. At this time, the principal practice areas of Mr. Rohan's law firm are as follows: Residential & Commercial Real Estate (Representation of Buyers, Sellers and Lenders) & Title Services; Business/Corporate Representation; and Estate Planning & Administration.",
