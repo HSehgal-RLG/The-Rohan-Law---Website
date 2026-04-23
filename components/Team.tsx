@@ -38,7 +38,7 @@ const team = [
     name: "Virginia (Ginny) Lamb",
     title: "Real Estate Paralegal & Closing Coordinator",
     email: "VLamb@RohanLaw.com",
-    photo: null,
+    photo: "/staff-virginia.jpg",
     bio: "Ginny manages the firm's real estate closing pipeline with exceptional attention to detail, ensuring smooth transactions from contract to close.",
     fullBio: null,
   },
