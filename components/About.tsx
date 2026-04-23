@@ -75,10 +75,10 @@ export default function About() {
 
           {/* Right — stats */}
           <SlideInRight className="flex flex-col gap-6 lg:pt-16">
-            <StaggerContainer stagger={0.12}>
+            <StaggerContainer stagger={0.12} className="space-y-5">
               {stats.map((stat) => (
                 <StaggerItem key={stat.label}>
-                  <div className="bg-navy rounded-lg p-8 text-center mb-6 last:mb-0">
+                  <div className="bg-navy rounded-lg p-8 text-center">
                     <p className="font-serif text-5xl text-white mb-2">
                       {stat.value}
                     </p>
