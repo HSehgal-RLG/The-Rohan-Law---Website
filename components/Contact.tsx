@@ -38,7 +38,7 @@ export default function Contact() {
       message: HTMLTextAreaElement;
     };
     try {
-      const res = await fetch("https://formspree.io/f/xwvarqpw", {
+      const res = await fetch("/api/contact", {
         method: "POST",
         body: JSON.stringify({
           name: els.name.value,
@@ -46,10 +46,7 @@ export default function Contact() {
           subject: els.subject.value,
           message: els.message.value,
         }),
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
       });
       if (res.ok) {
         setStatus("success");
