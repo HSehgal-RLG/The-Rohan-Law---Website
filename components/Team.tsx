@@ -31,7 +31,7 @@ const team = [
     title: "Research Associate / Law Clerk",
     email: "HSehgal@RohanLaw.com",
     photo: "/staff-huzaifah.jpg",
-    bio: "Huzaifah supports the firm's legal research and analysis, with a focus on technology law, data privacy frameworks, and AI governance developments.",
+    bio: "Huzaifah supports Brian, the firm's Managing Partner, with all residential and commercial real estate closings, estate planning and administration matters, business formations, and traffic files.",
     fullBio: null,
   },
   {
