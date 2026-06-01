@@ -59,7 +59,7 @@ function RealEstateContent() {
   return (
     <div>
       <p className="text-navy/70 font-sans text-sm leading-relaxed mb-6">
-        Real estate transactions are rarely simple — they&apos;re high-stakes, time-sensitive, and layered with legal complexity. At The Rohan Law Group, clients benefit from over 30 years of deep experience navigating this terrain, from straightforward home purchases to sophisticated, multimillion-dollar commercial developments. The firm has built a distinguished record representing buyers, sellers, developers, lenders, investors, municipalities, and major financial institutions across New York State, successfully guiding thousands of transactions from initial contract execution through final closing.
+        Real estate transactions are rarely simple — they&apos;re high-stakes, time-sensitive, and layered with legal complexity. At The Rohan Law Group, clients benefit from over 30 years of deep experience navigating this terrain, from straightforward home purchases to sophisticated, multimillion-dollar commercial undertakings. The firm has built a distinguished record representing buyers, sellers, lenders, investors, land banks, and major financial institutions across New York State, successfully guiding thousands of transactions from initial contract execution through final closing.
       </p>
       <p className="text-navy/70 font-sans text-sm leading-relaxed mb-8">
         What truly sets the Rohan Law Group apart is its unwavering commitment to being more than a document preparer. The firm&apos;s attorneys serve as trusted advisors at every turn — combining sharp legal precision with responsive, personalized service and genuine attention to each client&apos;s unique goals.
@@ -104,7 +104,7 @@ function RealEstateContent() {
               ["Real Estate Agent Representation", "The firm can assist buyers in establishing a dedicated buyer's agent relationship, ensuring their interests are independently represented."],
             ].map(([heading, desc]) => (
               <li key={heading} className="flex items-start gap-3">
-                <ChevronRight size={14} className="text-maroon flex-shrink-0 mt-1" />
+                <span className="text-maroon flex-shrink-0 mt-1">•</span>
                 <span className="text-navy/70 font-sans text-sm leading-relaxed">
                   <span className="font-semibold text-navy">{heading} — </span>{desc}
                 </span>
