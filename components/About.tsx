@@ -28,7 +28,7 @@ export default function About() {
             <div className="space-y-5 text-navy/70 font-sans leading-relaxed text-[0.97rem]">
               <FadeUp delay={0.2}>
                 <p>
-                  The Rohan Law Group, P.C., ("The Rohan Law Group") is a transactional law practice with its
+                  The Rohan Law Group, P.C., ("The Rohan Law Group"), is a transactional law practice with its
                   principal offices conveniently located just off Wolf Road in
                   Colonie, New York — a short distance from Albany International
                   Airport — with satellite offices in Saratoga Springs and Glens
