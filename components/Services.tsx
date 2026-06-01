@@ -104,7 +104,7 @@ function RealEstateContent() {
               ["Real Estate Agent Representation", "The firm can assist buyers in establishing a dedicated buyer's agent relationship, ensuring their interests are independently represented."],
             ].map(([heading, desc]) => (
               <li key={heading} className="flex items-start gap-3">
-                <span className="text-maroon flex-shrink-0 mt-1">•</span>
+                <span className="text-maroon flex-shrink-0 text-sm leading-relaxed">•</span>
                 <span className="text-navy/70 font-sans text-sm leading-relaxed">
                   <span className="font-semibold text-navy">{heading} — </span>{desc}
                 </span>
@@ -130,7 +130,7 @@ function RealEstateContent() {
               ["Foreclosures", "Representation of institutional lenders, banks, and private mortgage holders in commercial foreclosures involving apartment complexes and other commercial properties."],
             ].map(([heading, desc]) => (
               <li key={heading} className="flex items-start gap-3">
-                <span className="text-maroon flex-shrink-0 mt-1">•</span>
+                <span className="text-maroon flex-shrink-0 text-sm leading-relaxed">•</span>
                 <span className="text-navy/70 font-sans text-sm leading-relaxed">
                   <span className="font-semibold text-navy">{heading} — </span>{desc}
                 </span>
@@ -157,7 +157,7 @@ function RealEstateContent() {
               ["Tenant Representation", "Representation of tenants facing wrongful eviction, habitability issues, or disputes over lease terms, ensuring their rights are fully protected."],
             ].map(([heading, desc]) => (
               <li key={heading} className="flex items-start gap-3">
-                <span className="text-maroon flex-shrink-0 mt-1">•</span>
+                <span className="text-maroon flex-shrink-0 text-sm leading-relaxed">•</span>
                 <span className="text-navy/70 font-sans text-sm leading-relaxed">
                   <span className="font-semibold text-navy">{heading} — </span>{desc}
                 </span>
@@ -175,7 +175,7 @@ function RealEstateContent() {
               ["Title Examination & Certification", "The firm's attorneys are licensed by the New York State Department of Financial Services as title agents and bring extensive experience in all phases of title examination and certification."],
             ].map(([heading, desc]) => (
               <li key={heading} className="flex items-start gap-3">
-                <span className="text-maroon flex-shrink-0 mt-1">•</span>
+                <span className="text-maroon flex-shrink-0 text-sm leading-relaxed">•</span>
                 <span className="text-navy/70 font-sans text-sm leading-relaxed">
                   <span className="font-semibold text-navy">{heading} — </span>{desc}
                 </span>
