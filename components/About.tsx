@@ -34,9 +34,7 @@ export default function About() {
                   Airport — with satellite offices in Saratoga Springs and Glens
                   Falls. The firm&apos;s founding member, Brian P. Rohan, Esq.,
                   brings substantial experience across the firm&apos;s core
-                  practice areas and is supported by associate candidate Huzaifah
-                  Sehgal (bar admission pending) and a staff of highly skilled
-                  legal professionals, all utilizing the latest in technology and
+                  practice areas and is supported by a team of dedicated and highly skilled legal professionals, all utilizing the latest in technology and
                   computerized services. It is this successful marriage of talent
                   and innovation that enables The Rohan Law Group to deliver
                   exceptional results for its institutional, business, and
