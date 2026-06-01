@@ -54,7 +54,7 @@ const services = [
 
 function RealEstateContent() {
   const [tab, setTab] = useState(0);
-  const tabs = ["Residential", "Commercial", "Land Use & Zoning", "Title & Foreclosure"];
+  const tabs = ["Residential", "Commercial", "Landlord-Tenant", "Title & Foreclosure"];
 
   return (
     <div>
@@ -90,12 +90,12 @@ function RealEstateContent() {
           </p>
           <ul className="space-y-3">
             {[
-              ["Contract Review & Attorney Approval", "Every contract is thoroughly reviewed to ensure it is legally sound, with revisions and amendments made as needed to protect the client's interests before approval is given."],
-              ["Contract Negotiation", "The firm's attorneys negotiate on behalf of clients to secure fair, favorable terms and conditions tailored to their specific situation."],
-              ["Offer Acceptance Guidance", "Clients receive clear, practical counsel on understanding and responding to purchase offers, ensuring their rights and obligations are fully understood before moving forward."],
+              ["Contract Review & Attorney Approval", "Every contract is thoroughly reviewed to ensure it is legally sound, with revisions and amendments being accomplished as deemed necessary or desirable to protect the client's best interests."],
+              ["Contract Negotiation", "The firm's attorneys, in full cooperation with the licensed Realtor as may be engaged by the client, negotiate on behalf of the client to secure fair, favorable terms and conditions tailored to their specific situation."],
+              ["Offer Acceptance Guidance", "Clients receive clear, practical counsel and education aimed at assisting the client on better understanding and responding to purchase offers, and ensuring that their rights and obligations are fully understood before moving forward."],
               ["Contingency Management", "From home inspections to mortgage financing, the firm works proactively to help clients satisfy contractual contingencies and keep transactions on track."],
-              ["Closing Date Coordination", "The attorneys work collaboratively with all parties involved to select and properly prepare for an appropriate and workable closing date."],
-              ["Title Insurance Guidance", "Clients receive plain-language explanations of title insurance — when lenders require it, when obtaining a separate owner's policy is advisable, and how it protects long-term interests."],
+              ["Closing Date Coordination", "The attorneys work collaboratively with all parties involved in the transaction to select and properly prepare for an appropriate and workable closing date."],
+              ["Title Insurance Guidance", "Clients receive plain-language explanations of title insurance, the mortgage policy to protect the lender as well as the owner or fee policy to protect the client, and how it protects their long-term interests."],
               ["Occupancy Agreements", "When a closing date and a move-in or move-out date don't align, the firm drafts clear occupancy agreements to manage the transition smoothly for all parties."],
               ["Property Condition Disclosure", "Sellers are guided through the preparation of a complete, legally compliant Property Condition Disclosure Statement, minimizing future liability."],
               ["\"As-Is\" Transactions", "Thorough guidance on the distinct legal considerations of as-is sales, helping clients — whether buyer or seller — fully understand their risks and responsibilities."],
@@ -118,7 +118,7 @@ function RealEstateContent() {
       {tab === 1 && (
         <div className="space-y-4">
           <p className="text-navy/70 font-sans text-sm leading-relaxed">
-            On the commercial side, the Rohan Law Group brings substantial depth, sophistication, and a proven track record to every engagement. The firm has represented major hotel developers, institutional lenders, national retailers, healthcare providers, manufacturers, and municipal entities in transactions of all sizes and complexity.
+            On the commercial side, the Rohan Law Group brings substantial depth, sophistication, and a proven track record to every engagement. The firm has represented investors and institutional lenders in transactions of all sizes and complexity.
           </p>
           <ul className="space-y-3">
             {[
@@ -127,14 +127,10 @@ function RealEstateContent() {
               ["Development & Construction", "Extensive experience representing developers in construction loan financing, drafting and negotiating construction contracts, and guiding projects from acquisition through completion."],
               ["Financing & Private Lending", "Deep expertise in residential and commercial mortgage lending, including complex financing structures involving the IDA, HUD, SBA, the New York Job Development Authority, and low-income housing tax credit programs."],
               ["Retail, Office & Mixed-Use Properties", "Counsel on streamlined site acquisitions, lease negotiations, and complex transactional structures."],
-              ["Eminent Domain & Condemnation", "Representation of property owners and affected parties navigating government takings and condemnation proceedings."],
-              ["Commercial Tax Disputes & Abatements", "Counsel on maximizing benefits of real property tax abatements, PILOT agreements, sales tax exemptions, and other governmental incentive programs."],
-              ["Affordable Housing Transactions", "Significant experience representing developers and lenders in affordable housing financing, including transactions involving the NY State Housing Trust Fund Corporation, DHCR, and HUD."],
-              ["Real Estate Syndications", "Representation of developers in the formation and sale of real estate investment syndications."],
-              ["Foreclosures", "Representation of institutional lenders, banks, and insurance companies in major commercial foreclosures involving shopping centers, hotels, apartment complexes, condominiums, and residential properties."],
+              ["Foreclosures", "Representation of institutional lenders, banks, and private mortgage holders in commercial foreclosures involving apartment complexes and other commercial properties."],
             ].map(([heading, desc]) => (
               <li key={heading} className="flex items-start gap-3">
-                <ChevronRight size={14} className="text-maroon flex-shrink-0 mt-1" />
+                <span className="text-maroon flex-shrink-0 mt-1">•</span>
                 <span className="text-navy/70 font-sans text-sm leading-relaxed">
                   <span className="font-semibold text-navy">{heading} — </span>{desc}
                 </span>
@@ -144,23 +140,24 @@ function RealEstateContent() {
         </div>
       )}
 
-      {/* Tab 2 — Land Use & Zoning */}
+      {/* Tab 2 — Landlord-Tenant */}
       {tab === 2 && (
         <div className="space-y-4">
           <p className="text-navy/70 font-sans text-sm leading-relaxed">
-            Real estate today demands more than transactional skill — it requires a thorough understanding of the regulatory landscape. The Rohan Law Group provides experienced counsel in all aspects of land use, zoning, and environmental law.
+            The Rohan Law Group provides experienced counsel to both landlords and tenants in all aspects of residential and commercial landlord-tenant matters throughout New York State. Whether preparing a lease, pursuing an eviction, or resolving a dispute, the firm delivers practical guidance at every stage.
           </p>
           <ul className="space-y-3">
             {[
-              ["Zoning Approvals, Planning & Permitting", "Representation of developers and municipalities through local agency processes, zoning board hearings, and appellate practice on all issues of zoning law."],
-              ["Land Use Disputes", "Legal support for clients facing challenges involving zoning ordinances, variance requests, and contested land use decisions."],
-              ["Environmental Compliance", "Experienced review of environmental assessments, NYSDEC and NEPA regulatory matters, and environmental remediation of commercial sites."],
-              ["Conservation Easements", "Guidance on the creation and enforcement of conservation easements and related land protection agreements."],
-              ["Historic Preservation & Tax Incentive Projects", "Counsel on projects involving historic preservation designations and the federal and state tax incentive programs that accompany them."],
-              ["Planned Communities & Multifamily Developments", "Legal support for the development and governance of planned communities, condominiums, and multifamily housing projects."],
+              ["Eviction Proceedings", "Representation of landlords through the full eviction process, from initial default through final judgment and enforcement, in compliance with New York procedural requirements."],
+              ["Notice Preparation & Service", "Drafting and serving legally compliant notices — including notices to quit, pay or cure, and termination notices — to preserve landlord rights and establish the proper record for proceedings."],
+              ["Lease Drafting & Review", "Preparation and review of residential and commercial lease agreements to ensure terms are clear, enforceable, and protective of the client's interests."],
+              ["Lease Enforcement", "Legal support for landlords and tenants seeking to enforce lease obligations, including rent collection, breach of covenant claims, and holdover tenancy matters."],
+              ["Security Deposit Disputes", "Guidance on the proper handling, withholding, and return of security deposits under New York law, and representation in disputes arising therefrom."],
+              ["Landlord-Tenant Negotiations", "Assistance in negotiating lease modifications, early terminations, and workout arrangements to resolve disputes and avoid costly litigation."],
+              ["Tenant Representation", "Representation of tenants facing wrongful eviction, habitability issues, or disputes over lease terms, ensuring their rights are fully protected."],
             ].map(([heading, desc]) => (
               <li key={heading} className="flex items-start gap-3">
-                <ChevronRight size={14} className="text-maroon flex-shrink-0 mt-1" />
+                <span className="text-maroon flex-shrink-0 mt-1">•</span>
                 <span className="text-navy/70 font-sans text-sm leading-relaxed">
                   <span className="font-semibold text-navy">{heading} — </span>{desc}
                 </span>
@@ -175,12 +172,10 @@ function RealEstateContent() {
         <div className="space-y-4">
           <ul className="space-y-3">
             {[
-              ["Title Examination & Certification", "The firm's attorneys are licensed by the New York State Department of Financial Services as title agents and bring extensive experience in all phases of title examination, certification, and related proceedings and litigation. The firm also represents a major title company in title claim matters."],
-              ["Tax Certiorari", "Representation of both taxpayers and municipalities in tax assessment challenges for a broad range of property types, including large apartment complexes, warehouses, manufacturing facilities, and residential homesteads."],
-              ["Homeowner Associations & Condominiums", "Substantial experience in condominium law, including participation in the formation and conversion of numerous residential and commercial condominiums and the establishment and governance of homeowner associations."],
+              ["Title Examination & Certification", "The firm's attorneys are licensed by the New York State Department of Financial Services as title agents and bring extensive experience in all phases of title examination and certification."],
             ].map(([heading, desc]) => (
               <li key={heading} className="flex items-start gap-3">
-                <ChevronRight size={14} className="text-maroon flex-shrink-0 mt-1" />
+                <span className="text-maroon flex-shrink-0 mt-1">•</span>
                 <span className="text-navy/70 font-sans text-sm leading-relaxed">
                   <span className="font-semibold text-navy">{heading} — </span>{desc}
                 </span>
@@ -189,7 +184,7 @@ function RealEstateContent() {
           </ul>
           <div className="bg-cream rounded-lg p-5 mt-4">
             <p className="text-navy/70 font-sans text-sm leading-relaxed italic">
-              &ldquo;At the Rohan Law Group, every real estate matter — whether it involves a modest residential sale or a large-scale commercial development — represents something meaningful to the client. The firm&apos;s goal is not simply to complete transactions, but to ensure that each client walks away fully informed, well-protected, and confident in the outcome.&rdquo;
+              &ldquo;At the Rohan Law Group, every real estate matter — whether it involves a modest residential sale or a large-scale Commercial transaction — represents something meaningful to the client. The firm&apos;s goal is not simply to complete transactions, but to ensure that each client walks away fully informed, well-protected, and confident in the outcome.&rdquo;
             </p>
           </div>
         </div>
