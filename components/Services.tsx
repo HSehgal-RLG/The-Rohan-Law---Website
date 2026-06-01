@@ -11,9 +11,9 @@ const services = [
   {
     icon: Building2,
     title: "Real Estate",
-    subtitle: "Residential · Commercial · Land Use · Title",
+    subtitle: "Residential · Commercial · Landlord-Tenant · Title",
     summary:
-      "Over 30 years of deep experience in residential and commercial real estate transactions, land use, zoning, title, and foreclosure matters throughout New York State.",
+      "Over 30 years of deep experience in residential and commercial real estate transactions, landlord-tenant matters, zoning, title, and foreclosure matters throughout New York State.",
     badge: "Core Practice",
   },
   {
