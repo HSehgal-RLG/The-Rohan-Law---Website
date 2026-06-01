@@ -76,15 +76,15 @@ export default function Hero() {
             className="text-white/90 text-sm uppercase font-sans mb-8 drop-shadow-md"
             style={{ letterSpacing: "0.2em" }}
           >
-            Albany, New York &nbsp;·&nbsp; Established 1994
+            Albany, New York &nbsp;·&nbsp; Established 1996
           </p>
         </HeroItem>
 
         <HeroItem delay={0.3}>
           <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white leading-[1.1] mb-6">
-            Counsel You Can
+            Trusted Legal Counsel That
             <br />
-            <span className="italic">Rely On.</span>
+            <span className="italic">You Can Rely On.</span>
           </h1>
         </HeroItem>
 
@@ -94,8 +94,8 @@ export default function Hero() {
 
         <HeroItem delay={0.55}>
           <p className="text-white/80 text-base sm:text-lg md:text-xl max-w-2xl mx-auto mb-10 font-sans leading-relaxed">
-            Three decades of trusted counsel in real estate, estate planning,
-            corporate law, and traffic matters throughout New York.
+            Three decades of trusted legal counsel in residential and commercial real estate, estate planning and administration,
+            corporate law, and traffic matters throughout the State of New York.
           </p>
         </HeroItem>
 
