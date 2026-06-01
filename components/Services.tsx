@@ -35,7 +35,7 @@ const services = [
   {
     icon: Briefcase,
     title: "Corporate Law & Business Formation",
-    subtitle: "Entity Formation · M&A · Ongoing Counsel",
+    subtitle: "Entity Formation · Ongoing Counsel",
     summary:
       "Full-lifecycle legal support for businesses — from initial formation and deal-making to ongoing counsel, succession planning, and growth strategy.",
     badge: "Core Practice",
