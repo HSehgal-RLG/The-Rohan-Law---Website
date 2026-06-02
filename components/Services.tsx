@@ -236,7 +236,7 @@ function EstateAdminContent() {
   return (
     <div className="space-y-5">
       <p className="text-navy/70 font-sans text-sm leading-relaxed">
-        When a loved one passes away, families are often faced with a number of legal and financial responsibilities during an already difficult time. The estate administration process may involve locating and probating a will, gathering and valuing assets, paying debts and taxes, accounting to beneficiaries, and distributing property according to the decedent&apos;s wishes or New York law.
+        When a loved one passes away, families are often faced with a number of legal and financial responsibilities during an already difficult time. The estate administration process may involve locating and probating a will, gathering and valuing assets, paying debts and taxes, accounting to beneficiaries, and distributing property according to the decedent&apos;s wishes or the law of the State of New York.
       </p>
       <p className="text-navy/70 font-sans text-sm leading-relaxed">
         The attorneys at The Rohan Law Group provide knowledgeable guidance to executors, trustees, and administrators throughout this process. Our team works diligently to ensure that estates are administered efficiently, accurately, and with the utmost respect for the individual whose legacy is being honored.
