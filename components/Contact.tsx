@@ -226,7 +226,7 @@ export default function Contact() {
                       id="subject"
                       name="subject"
                       type="text"
-                      placeholder="Business matter, real estate or estate planning/administration question…"
+                      placeholder="Business matter, real estate or estate planning/administration…"
                       className="w-full border border-gray-200 rounded-md px-4 py-2.5 text-navy text-sm font-sans bg-white focus:outline-none focus:ring-2 focus:ring-maroon/30 focus:border-maroon/50 transition-all placeholder:text-navy/30"
                     />
                   </div>
