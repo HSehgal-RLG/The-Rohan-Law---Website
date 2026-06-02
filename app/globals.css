@@ -108,3 +108,71 @@
     outline-offset: 2px;
   }
 }
+
+@media print {
+  /* Hide non-content elements */
+  header,
+  footer,
+  nav,
+  button,
+  [data-print-hide],
+  #contact form,
+  #location iframe {
+    display: none !important;
+  }
+
+  /* Reset page */
+  * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  body {
+    background: white !important;
+    color: #1b2a4a !important;
+    font-size: 11pt;
+  }
+
+  /* Remove scroll animations — show everything */
+  [style*="opacity: 0"],
+  [style*="opacity:0"] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  /* Hero: remove background image, show text only */
+  #hero {
+    background: #1b2a4a !important;
+    min-height: unset !important;
+    padding: 2rem !important;
+  }
+
+  /* Page breaks between major sections */
+  #about,
+  #team,
+  #services,
+  #title,
+  #testimonials,
+  #contact {
+    page-break-before: always;
+    padding-top: 1rem !important;
+  }
+
+  /* Ensure text colors render */
+  .text-navy\/70,
+  .text-navy\/80 {
+    color: #1b2a4a !important;
+    opacity: 0.8;
+  }
+
+  /* Remove box shadows and rounded corners */
+  * {
+    box-shadow: none !important;
+  }
+
+  /* Make links plain text */
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+}
