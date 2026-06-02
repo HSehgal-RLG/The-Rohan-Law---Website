@@ -253,7 +253,7 @@ function EstateAdminContent() {
           "Handling both testate (with a will) and intestate (without a will) estates",
         ].map((item) => (
           <li key={item} className="flex items-start gap-3">
-            <ChevronRight size={14} className="text-maroon flex-shrink-0 mt-1" />
+            <span className="text-maroon flex-shrink-0 text-sm leading-[1.25rem]">•</span>
             <span className="text-navy/70 font-sans text-sm">{item}</span>
           </li>
         ))}
@@ -324,7 +324,7 @@ function TrafficContent() {
           "Leaving the Scene of a Property Damage Accident",
         ].map((item) => (
           <li key={item} className="flex items-start gap-3">
-            <ChevronRight size={14} className="text-maroon flex-shrink-0 mt-1" />
+            <span className="text-maroon flex-shrink-0 text-sm leading-[1.25rem]">•</span>
             <span className="text-navy/70 font-sans text-sm">{item}</span>
           </li>
         ))}
