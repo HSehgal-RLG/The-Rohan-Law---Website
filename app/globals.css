@@ -110,7 +110,12 @@
 }
 
 @media print {
-  /* Hide non-content elements */
+  @page {
+    size: letter;
+    margin: 0.65in 0.75in;
+  }
+
+  /* ── Hide UI chrome ── */
   header,
   footer,
   nav,
@@ -121,58 +126,100 @@
     display: none !important;
   }
 
-  /* Reset page */
-  * {
-    -webkit-print-color-adjust: exact;
-    print-color-adjust: exact;
+  /* ── Base reset ── */
+  *,
+  *::before,
+  *::after {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    box-shadow: none !important;
   }
 
   body {
     background: white !important;
     color: #1b2a4a !important;
-    font-size: 11pt;
+    font-size: 10.5pt;
+    line-height: 1.5;
   }
 
-  /* Remove scroll animations — show everything */
+  a {
+    text-decoration: none;
+    color: inherit !important;
+  }
+
+  /* ── Reveal animated elements ── */
   [style*="opacity: 0"],
-  [style*="opacity:0"] {
+  [style*="opacity:0"],
+  [style*="transform"] {
     opacity: 1 !important;
     transform: none !important;
   }
 
-  /* Hero: remove background image, show text only */
+  /* ── Hero: solid navy bar with white text ── */
   #hero {
     background: #1b2a4a !important;
     min-height: unset !important;
-    padding: 2rem !important;
+    padding: 1.5rem 2rem !important;
+  }
+  #hero * { color: white !important; }
+  #hero img { display: none !important; }
+
+  /* ── Page breaks ── */
+  #about    { page-break-before: always; }
+  #team     { page-break-before: always; }
+  #services { page-break-before: always; }
+  #title    { page-break-before: always; }
+  #testimonials { page-break-before: always; }
+  #contact  { page-break-before: always; }
+
+  /* Avoid breaking inside a card */
+  .rounded-lg,
+  li,
+  p {
+    page-break-inside: avoid;
   }
 
-  /* Page breaks between major sections */
-  #about,
-  #team,
-  #services,
-  #title,
-  #testimonials,
-  #contact {
-    page-break-before: always;
-    padding-top: 1rem !important;
+  /* ── Fix next/image fill images for print ── */
+  /* The photo wrapper containers */
+  #team .relative,
+  #team [class*="aspect"] {
+    position: relative !important;
+    height: 180px !important;
+    width: 100% !important;
+    overflow: hidden !important;
+    display: block !important;
   }
 
-  /* Ensure text colors render */
-  .text-navy\/70,
-  .text-navy\/80 {
-    color: #1b2a4a !important;
-    opacity: 0.8;
+  /* Brian's wider photo */
+  #team .md\:grid-cols-\[280px_1fr\] .relative {
+    height: 220px !important;
   }
 
-  /* Remove box shadows and rounded corners */
-  * {
-    box-shadow: none !important;
+  /* Force next/image spans and imgs to fill their container */
+  #team span[style],
+  #team img {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: top !important;
+    display: block !important;
   }
 
-  /* Make links plain text */
-  a {
-    text-decoration: none;
-    color: inherit;
+  /* ── Team grid: 2 columns in print ── */
+  #team .grid-cols-1.sm\:grid-cols-2.lg\:grid-cols-4 {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 1rem !important;
+  }
+
+  /* ── Services tabs: tidy up ── */
+  #services button {
+    display: inline-block !important;
+    border: 1px solid #1b2a4a !important;
+    padding: 2px 8px !important;
+    font-size: 8pt !important;
+    margin-right: 4px !important;
   }
 }
