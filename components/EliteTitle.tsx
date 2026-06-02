@@ -55,7 +55,7 @@ export default function EliteTitle() {
               </FadeUp>
               <FadeUp delay={0.3}>
                 <p>
-                  Our title professionals conduct thorough title searches,
+                  Our title professionals spearhead title search orders,
                   identify and resolve title defects, issue title commitments,
                   and coordinate title insurance through leading national
                   underwriters — ensuring that buyers, lenders, and all parties
