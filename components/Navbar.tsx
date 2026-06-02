@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Menu, X, Printer } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import Image from "next/image";
 
 const navLinks = [
@@ -49,17 +49,9 @@ export default function Navbar() {
                 {link.label}
               </a>
             ))}
-            <button
-              onClick={() => window.print()}
-              className="ml-2 text-white/60 hover:text-white p-2 transition-colors duration-150"
-              aria-label="Print / Save as PDF"
-              title="Print / Save as PDF"
-            >
-              <Printer size={16} />
-            </button>
             <a
               href="#contact"
-              className="ml-2 bg-maroon hover:bg-maroon-dark text-white text-xs uppercase tracking-widest px-5 py-2.5 transition-colors duration-150 font-sans"
+              className="ml-4 bg-maroon hover:bg-maroon-dark text-white text-xs uppercase tracking-widest px-5 py-2.5 transition-colors duration-150 font-sans"
             >
               Get in Touch
             </a>
