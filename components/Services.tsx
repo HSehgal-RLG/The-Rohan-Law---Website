@@ -276,13 +276,13 @@ function CorporateContent() {
       </p>
       <ul className="space-y-4 mt-4">
         {[
-          ["Entity Formation & Structure", "The firm helps entrepreneurs and established companies choose and build the right legal structure — whether a corporation, partnership, or LLC — with an eye toward long-term growth, investment readiness, and liability protection."],
-          ["Transactions & Deal Support", "The attorneys handle a broad range of business transactions, including mergers and acquisitions, financing arrangements, and partnership formations. Their work covers contract negotiation and drafting, due diligence, and regulatory compliance — ensuring deals close efficiently and clients walk away with agreements that genuinely protect their interests."],
-          ["Ongoing Business Counsel", "Beyond transactions, the firm serves as an ongoing legal resource for matters such as employment agreements, shareholder and buy-sell agreements, commercial leases, and property acquisitions — functioning as an extension of a client's management team rather than outside counsel brought in only for crises."],
-          ["Business Succession Planning", "For owners thinking about the future of their business, the firm brings together corporate, estate planning, and tax expertise to develop thoughtful succession strategies — addressing ownership transition, financial security, family dynamics, and the long-term health of the business itself."],
+          ["Entity Formation & Structure", "The firm helps entrepreneurs and established companies choose and build the right legal structure — whether a corporation, partnership, or limited liability company — with an eye toward long-term growth, investment readiness, and liability protection."],
+          ["Transactions & Deal Support", "The attorneys handle a broad range of business transactions, including buy-sell agreements (stock transfer or asset purchase, as may be desired), financing arrangements, and business formations. Their work covers contract negotiation and drafting, due diligence, and regulatory compliance — ensuring deals close efficiently and clients walk away with agreements that genuinely protect their interests."],
+          ["Ongoing Business Counsel", "Beyond transactions, the firm serves as an ongoing legal resource for matters such as employment agreements, shareholder agreements, operating agreements, board resolutions and member consent instruments, commercial leases, and property acquisitions — functioning as an extension of a client's management team rather than outside counsel brought in only for crises."],
+          ["Business Succession Planning", "For owners thinking about the future of their business, the firm brings together corporate and estate planning to develop thoughtful succession strategies — addressing ownership transition, financial security, family dynamics, and the long-term health of the business itself."],
         ].map(([heading, desc]) => (
           <li key={heading} className="flex items-start gap-3">
-            <ChevronRight size={14} className="text-maroon flex-shrink-0 mt-1" />
+            <span className="text-maroon flex-shrink-0 text-sm leading-relaxed">•</span>
             <span className="text-navy/70 font-sans text-sm leading-relaxed">
               <span className="font-semibold text-navy">{heading} — </span>{desc}
             </span>
