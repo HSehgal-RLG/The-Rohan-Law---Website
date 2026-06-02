@@ -200,13 +200,13 @@ function EstatePlanningContent() {
         Planning for the future is one of the most important steps you can take to protect your loved ones and preserve the legacy you have worked a lifetime to build. At The Rohan Law Group, our attorneys provide thoughtful, knowledgeable, and highly personalized guidance in all areas of trust and estate planning — approaching every matter with dedication, attention to detail, and a focus on achieving the best possible outcome for our clients and their families.
       </p>
       <p className="text-navy/70 font-sans text-sm leading-relaxed">
-        Estate planning is not only about preparing documents — it is about ensuring that your wishes are honored, your assets are protected, and your family is supported during difficult and emotional times. Our firm works closely with individuals and families throughout New York to develop comprehensive plans that reflect their personal, financial, and family goals.
+        Estate planning is not only about preparing documents — it is about ensuring that your wishes are honored, your assets are protected, and your family is supported during difficult and emotional times. Our firm works closely with individuals and families throughout the State of New York to develop comprehensive plans that reflect their personal, financial, and family goals.
       </p>
       <h4 className="font-serif text-navy text-lg font-semibold mt-6 mb-3">Our Services Include</h4>
       <ul className="space-y-2">
         {[
           "Wills and Trusts",
-          "Advanced Directives (Power of Attorney, Health Care Proxy, Living Wills)",
+          "Advanced Directives (Health Care Proxy and Living Wills)",
           "Powers of Attorney",
           "Guardianships",
           "Special Needs Planning",
@@ -214,7 +214,7 @@ function EstatePlanningContent() {
           "Business and Family Succession Planning",
         ].map((item) => (
           <li key={item} className="flex items-start gap-3">
-            <ChevronRight size={14} className="text-maroon flex-shrink-0 mt-1" />
+            <span className="text-maroon flex-shrink-0 text-sm leading-[1.25rem]">•</span>
             <span className="text-navy/70 font-sans text-sm">{item}</span>
           </li>
         ))}
@@ -225,7 +225,7 @@ function EstatePlanningContent() {
       <div className="bg-cream rounded-lg p-5 mt-2">
         <p className="text-maroon text-[0.65rem] uppercase tracking-widest font-sans mb-2">Our Commitment</p>
         <p className="text-navy/70 font-sans text-sm leading-relaxed">
-          Estate planning can feel overwhelming. Our attorneys take the time to clearly explain your options, answer your questions, and help you make informed decisions. At The Rohan Law Group, we pride ourselves on building long-term relationships — dedicated to protecting your interests and those of your loved ones.
+          Estate planning can feel overwhelming. Our attorneys take the time to clearly explain your options, answer your questions, and help you make well informed decisions. At The Rohan Law Group, we pride ourselves on building long-term relationships — dedicated to protecting your interests and those of your loved ones.
         </p>
       </div>
     </div>
