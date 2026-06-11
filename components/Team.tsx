@@ -180,7 +180,7 @@ export default function Team() {
                   src={brian.photo!}
                   alt={brian.name}
                   fill
-                  className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]"
+                  className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.02] saturate-[0.92] contrast-[1.03]"
                   sizes="(max-width: 768px) 100vw, 280px"
                 />
                 <div className="absolute inset-0 bg-navy/0 group-hover:bg-navy/10 transition-colors duration-300" />
@@ -230,7 +230,7 @@ export default function Team() {
                       src={member.photo}
                       alt={member.name}
                       fill
-                      className="object-cover object-top"
+                      className="object-cover object-top saturate-[0.92] contrast-[1.03]"
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                     />
                   ) : (

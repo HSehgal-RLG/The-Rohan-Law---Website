@@ -15,6 +15,7 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.rohanlaw.com"),
   title: "The Rohan Law Group | Albany, NY",
   description:
     "The Rohan Law Group — business, real estate, and technology transactional law in Albany, New York. Three decades of trusted counsel.",
@@ -22,12 +23,9 @@ export const metadata: Metadata = {
     title: "The Rohan Law Group | Albany, NY",
     description:
       "The Rohan Law Group — business, real estate, and technology transactional law in Albany, New York. Three decades of trusted counsel.",
+    url: "https://www.rohanlaw.com",
+    siteName: "The Rohan Law Group",
     images: [{ url: "/og-image.png", width: 1200, height: 630 }],
-  },
-  robots: {
-    index: false,
-    follow: false,
-    noimageindex: true,
   },
 };
 

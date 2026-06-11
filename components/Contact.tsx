@@ -102,78 +102,84 @@ export default function Contact() {
             {/* Offices */}
             <div className="flex flex-col gap-3 mt-2">
               <FadeUp delay={0.3}>
-                <a
-                  href="https://maps.google.com/?q=18+Computer+Drive+West+Suite+100+Colonie+New+York+12205"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-start gap-3 group"
-                >
+                <div className="flex items-start gap-3 group">
                   <div className="bg-navy/5 rounded-full p-2.5 flex-shrink-0 mt-0.5 group-hover:bg-navy/10 transition-colors">
                     <MapPin size={16} className="text-navy/50 group-hover:text-maroon transition-colors" aria-hidden="true" />
                   </div>
                   <div>
                     <p className="text-navy/40 font-sans text-[0.65rem] uppercase tracking-widest mb-0.5">Principal Office</p>
-                    <address className="not-italic text-navy/60 group-hover:text-maroon font-sans text-sm leading-relaxed transition-colors">
-                      18 Computer Drive West, Suite 100
-                      <br />
-                      Colonie, New York 12205
-                    </address>
-                    <div className="mt-0.5 space-y-0" onClick={e => e.stopPropagation()}>
+                    <a
+                      href="https://maps.google.com/?q=18+Computer+Drive+West+Suite+100+Colonie+New+York+12205"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block"
+                    >
+                      <address className="not-italic text-navy/60 group-hover:text-maroon font-sans text-sm leading-relaxed transition-colors">
+                        18 Computer Drive West, Suite 100
+                        <br />
+                        Colonie, New York 12205
+                      </address>
+                    </a>
+                    <div className="mt-0.5 space-y-0">
                       <a href="tel:+15184380010" className="block text-navy/50 hover:text-maroon font-sans text-xs transition-colors">Tel: (518) 438-0010</a>
                       <p className="text-navy/40 font-sans text-xs">Fax: (518) 438-0030</p>
                     </div>
                   </div>
-                </a>
+                </div>
               </FadeUp>
 
               <FadeUp delay={0.4}>
-                <a
-                  href="https://maps.google.com/?q=125+High+Rock+Avenue+Saratoga+Springs+New+York+12866"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-start gap-3 group"
-                >
+                <div className="flex items-start gap-3 group">
                   <div className="bg-navy/5 rounded-full p-2.5 flex-shrink-0 mt-0.5 group-hover:bg-navy/10 transition-colors">
                     <MapPin size={16} className="text-navy/50 group-hover:text-maroon transition-colors" aria-hidden="true" />
                   </div>
                   <div>
                     <p className="text-navy/40 font-sans text-[0.65rem] uppercase tracking-widest mb-0.5">Satellite Office · By Appointment Only</p>
-                    <address className="not-italic text-navy/60 group-hover:text-maroon font-sans text-sm leading-relaxed transition-colors">
-                      125 High Rock Avenue
-                      <br />
-                      Saratoga Springs, New York 12866
-                    </address>
-                    <div className="mt-0.5 space-y-0" onClick={e => e.stopPropagation()}>
+                    <a
+                      href="https://maps.google.com/?q=125+High+Rock+Avenue+Saratoga+Springs+New+York+12866"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block"
+                    >
+                      <address className="not-italic text-navy/60 group-hover:text-maroon font-sans text-sm leading-relaxed transition-colors">
+                        125 High Rock Avenue
+                        <br />
+                        Saratoga Springs, New York 12866
+                      </address>
+                    </a>
+                    <div className="mt-0.5 space-y-0">
                       <a href="tel:+15183064318" className="block text-navy/50 hover:text-maroon font-sans text-xs transition-colors">Tel: (518) 306-4318</a>
                       <p className="text-navy/40 font-sans text-xs">Fax: (518) 306-4518</p>
                     </div>
                   </div>
-                </a>
+                </div>
               </FadeUp>
 
               <FadeUp delay={0.5}>
-                <a
-                  href="https://maps.google.com/?q=333+Glen+Street+Glens+Falls+New+York+12801"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-start gap-3 group"
-                >
+                <div className="flex items-start gap-3 group">
                   <div className="bg-navy/5 rounded-full p-2.5 flex-shrink-0 mt-0.5 group-hover:bg-navy/10 transition-colors">
                     <MapPin size={16} className="text-navy/50 group-hover:text-maroon transition-colors" aria-hidden="true" />
                   </div>
                   <div>
                     <p className="text-navy/40 font-sans text-[0.65rem] uppercase tracking-widest mb-0.5">Satellite Office · By Appointment Only</p>
-                    <address className="not-italic text-navy/60 group-hover:text-maroon font-sans text-sm leading-relaxed transition-colors">
-                      333 Glen Street
-                      <br />
-                      Glens Falls, New York 12801
-                    </address>
-                    <div className="mt-0.5 space-y-0" onClick={e => e.stopPropagation()}>
+                    <a
+                      href="https://maps.google.com/?q=333+Glen+Street+Glens+Falls+New+York+12801"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block"
+                    >
+                      <address className="not-italic text-navy/60 group-hover:text-maroon font-sans text-sm leading-relaxed transition-colors">
+                        333 Glen Street
+                        <br />
+                        Glens Falls, New York 12801
+                      </address>
+                    </a>
+                    <div className="mt-0.5 space-y-0">
                       <a href="tel:+15183383833" className="block text-navy/50 hover:text-maroon font-sans text-xs transition-colors">Tel: (518) 338-3833</a>
                       <p className="text-navy/40 font-sans text-xs">Fax: (518) 338-3983</p>
                     </div>
                   </div>
-                </a>
+                </div>
               </FadeUp>
             </div>
           </SlideInLeft>

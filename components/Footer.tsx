@@ -30,7 +30,7 @@ export default function Footer() {
             </div>
             <p className="text-white/50 text-xs font-sans leading-relaxed max-w-xs">
               Transactional legal counsel for businesses, entrepreneurs, and
-              property owners throughout New York. Established 1994.
+              property owners throughout New York. Established 1996.
             </p>
           </div>
 

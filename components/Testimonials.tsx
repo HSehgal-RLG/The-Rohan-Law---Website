@@ -75,7 +75,7 @@ export default function Testimonials() {
         {/* Grid */}
         <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {testimonials.map((t) => (
-            <StaggerItem key={t.name}>
+            <StaggerItem key={t.name} className="h-full">
               <div className="flex flex-col h-full bg-cream rounded-xl p-7 border border-gray-100">
                 {/* Decorative quote mark */}
                 <span

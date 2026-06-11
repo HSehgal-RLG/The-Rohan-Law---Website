@@ -131,7 +131,7 @@ export default function EliteTitle() {
                     src={member.photo}
                     alt={member.name}
                     fill
-                    className="object-cover object-top"
+                    className="object-cover object-top saturate-[0.92] contrast-[1.03]"
                     sizes="(max-width: 640px) 100vw, 50vw"
                   />
                 </div>

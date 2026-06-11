@@ -431,10 +431,14 @@ export default function Services() {
 
         {/* Cards grid */}
         <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 gap-5">
-          {services.map((service) => {
+          {services.map((service, i) => {
             const Icon = service.icon;
+            const isLone = i === services.length - 1 && services.length % 2 === 1;
             return (
-              <StaggerItem key={service.title}>
+              <StaggerItem
+                key={service.title}
+                className={isLone ? "md:col-span-2 md:w-[calc(50%-0.625rem)] md:mx-auto" : undefined}
+              >
               <Card
                 onClick={() => setSelected(service.title)}
                 className="border border-gray-100 shadow-none hover:shadow-lg transition-all duration-200 rounded-lg p-0 cursor-pointer group h-full"
