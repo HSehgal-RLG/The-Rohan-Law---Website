@@ -27,14 +27,6 @@ const team = [
     },
   },
   {
-    name: "Huzaifah Sehgal",
-    title: "Research Associate / Law Clerk",
-    email: "HSehgal@RohanLaw.com",
-    photo: "/staff-huzaifah.jpg",
-    bio: "Huzaifah supports Brian, the firm's Managing Partner, with all residential and commercial real estate closings, estate planning and administration matters, business formations, and traffic files.",
-    fullBio: null,
-  },
-  {
     name: "Virginia (Ginny) Lamb",
     title: "Real Estate Paralegal & Closing Coordinator",
     email: "VLamb@RohanLaw.com",
@@ -220,7 +212,7 @@ export default function Team() {
         </FadeUp>
 
         {/* Rest of team */}
-        <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {rest.map((member) => (
             <StaggerItem key={member.name}>
               <Card className="border border-gray-100 shadow-none hover:shadow-md transition-shadow duration-200 rounded-lg overflow-hidden p-0 h-full">
@@ -231,7 +223,7 @@ export default function Team() {
                       alt={member.name}
                       fill
                       className="object-cover object-top saturate-[0.92] contrast-[1.03]"
-                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     />
                   ) : (
                     <PersonSilhouette />
