@@ -27,6 +27,9 @@ export const metadata: Metadata = {
     siteName: "The Rohan Law Group",
     images: [{ url: "/og-image.png", width: 1200, height: 630 }],
   },
+  verification: {
+    google: "KPBsAvxfYVpLA9V9x289Kla04WDLmhMSyV5jfehKCkl",
+  },
 };
 
 export default function RootLayout({
