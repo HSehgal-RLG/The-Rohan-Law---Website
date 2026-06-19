@@ -27,6 +27,14 @@ const team = [
     },
   },
   {
+    name: "Alimarie Santos",
+    title: "Legal Intern",
+    email: "ASantos@RohanLaw.com",
+    photo: "/staff-ali.jpg",
+    bio: "Ali is a 2L at Albany Law School and assists the firm in real estate transactions, estate planning, and business incorporation.",
+    fullBio: null,
+  },
+  {
     name: "Virginia (Ginny) Lamb",
     title: "Real Estate Paralegal & Closing Coordinator",
     email: "VLamb@RohanLaw.com",
@@ -212,7 +220,7 @@ export default function Team() {
         </FadeUp>
 
         {/* Rest of team */}
-        <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {rest.map((member) => (
             <StaggerItem key={member.name}>
               <Card className="border border-gray-100 shadow-none hover:shadow-md transition-shadow duration-200 rounded-lg overflow-hidden p-0 h-full">
@@ -223,7 +231,7 @@ export default function Team() {
                       alt={member.name}
                       fill
                       className="object-cover object-top saturate-[0.92] contrast-[1.03]"
-                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                     />
                   ) : (
                     <PersonSilhouette />
@@ -240,13 +248,15 @@ export default function Team() {
                   <p className="text-navy/60 text-sm font-sans leading-relaxed mb-3">
                     {member.bio}
                   </p>
-                  <a
-                    href={`mailto:${member.email}`}
-                    className="inline-flex items-center gap-1.5 text-maroon hover:text-maroon-dark text-xs font-sans transition-colors"
-                  >
-                    <Mail size={12} aria-hidden="true" />
-                    {member.email}
-                  </a>
+                  {member.email && (
+                    <a
+                      href={`mailto:${member.email}`}
+                      className="inline-flex items-center gap-1.5 text-maroon hover:text-maroon-dark text-xs font-sans transition-colors"
+                    >
+                      <Mail size={12} aria-hidden="true" />
+                      {member.email}
+                    </a>
+                  )}
                 </CardContent>
               </Card>
             </StaggerItem>
