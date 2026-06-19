@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { MapPin, ExternalLink } from "lucide-react";
-import { FadeUp, SlideInLeft, SlideInRight, StaggerContainer, StaggerItem } from "@/components/ui/animate";
+import { ExpandLine, FadeUp, SlideInLeft, SlideInRight, StaggerContainer, StaggerItem } from "@/components/ui/animate";
 
 const offices = [
   {
@@ -60,7 +60,8 @@ export default function Location() {
               Our Offices
             </h2>
           </FadeUp>
-          <FadeUp delay={0.2}>
+          <ExpandLine delay={0.2} className="h-0.5 w-16 bg-maroon mb-5" />
+          <FadeUp delay={0.3}>
             <p className="text-navy/70 font-sans text-sm leading-relaxed max-w-2xl">
               The Rohan Law Group serves clients throughout the Capital Region
               and across New York State from its principal office in Colonie and

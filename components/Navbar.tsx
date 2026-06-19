@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import Image from "next/image";
 
@@ -16,11 +16,27 @@ const navLinks = [
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 32);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
-    <header className="sticky top-0 z-50 bg-navy shadow-md">
+    <header
+      className={`sticky top-0 z-50 bg-navy transition-shadow duration-300 ${
+        scrolled ? "shadow-lg" : "shadow-md"
+      }`}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 lg:h-20">
+        <div
+          className={`flex items-center justify-between transition-all duration-300 ${
+            scrolled ? "h-14 lg:h-16" : "h-16 lg:h-20"
+          }`}
+        >
           {/* Logo */}
           <a
             href="#hero"
@@ -33,7 +49,9 @@ export default function Navbar() {
               alt="The Rohan Law Group"
               width={180}
               height={68}
-              className="h-11 lg:h-[3.75rem] w-auto"
+              className={`w-auto transition-all duration-300 ${
+                scrolled ? "h-9 lg:h-12" : "h-11 lg:h-[3.75rem]"
+              }`}
               priority
             />
           </a>

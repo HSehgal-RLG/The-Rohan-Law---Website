@@ -1,6 +1,6 @@
 "use client";
 
-import { FadeUp, StaggerContainer, StaggerItem } from "@/components/ui/animate";
+import { ExpandLine, FadeUp, StaggerContainer, StaggerItem } from "@/components/ui/animate";
 
 const testimonials = [
   {
@@ -64,7 +64,8 @@ export default function Testimonials() {
               What Our Clients Say
             </h2>
           </FadeUp>
-          <FadeUp delay={0.2}>
+          <ExpandLine delay={0.2} originX={0.5} className="h-0.5 w-16 bg-maroon mx-auto mb-5" />
+          <FadeUp delay={0.3}>
             <p className="text-navy/60 font-sans text-sm leading-relaxed">
               The following testimonials were provided voluntarily by clients and
               professional colleagues who have worked directly with Brian P. Rohan, Esq.

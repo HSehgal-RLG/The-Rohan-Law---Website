@@ -1,6 +1,6 @@
 "use client";
 
-import { FadeUp, SlideInLeft, SlideInRight, StaggerContainer, StaggerItem } from "@/components/ui/animate";
+import { CountUp, ExpandLine, FadeUp, SlideInLeft, SlideInRight, StaggerContainer, StaggerItem } from "@/components/ui/animate";
 
 const stats = [
   { value: "30+", label: "Years of Practice" },
@@ -21,10 +21,11 @@ export default function About() {
               </p>
             </FadeUp>
             <FadeUp delay={0.1}>
-              <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-navy leading-tight mb-8">
+              <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-navy leading-tight mb-5">
                 Thirty Years of Trusted Legal Counsel
               </h2>
             </FadeUp>
+            <ExpandLine delay={0.2} className="h-0.5 w-16 bg-maroon mb-8" />
             <div className="space-y-5 text-navy/70 font-sans leading-relaxed text-[0.97rem]">
               <FadeUp delay={0.2}>
                 <p>
@@ -77,8 +78,8 @@ export default function About() {
               {stats.map((stat) => (
                 <StaggerItem key={stat.label}>
                   <div className="bg-navy rounded-lg p-8 text-center">
-                    <p className="font-serif text-5xl text-white mb-2">
-                      {stat.value}
+                    <p className="font-serif text-5xl text-white mb-2 tabular-nums">
+                      <CountUp value={stat.value} />
                     </p>
                     <p className="text-white/60 text-xs uppercase tracking-widest font-sans">
                       {stat.label}

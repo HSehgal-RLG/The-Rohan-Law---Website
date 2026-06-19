@@ -1,7 +1,7 @@
 "use client";
 
-import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import { motion, useInView, useReducedMotion } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
@@ -118,7 +118,15 @@ export function SlideInRight({ children, delay = 0, className }: FadeUpProps) {
   );
 }
 
-export function ExpandLine({ delay = 0, className }: { delay?: number; className?: string }) {
+export function ExpandLine({
+  delay = 0,
+  className,
+  originX = 0,
+}: {
+  delay?: number;
+  className?: string;
+  originX?: number;
+}) {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-60px" });
 
@@ -128,8 +136,101 @@ export function ExpandLine({ delay = 0, className }: { delay?: number; className
       initial={{ scaleX: 0 }}
       animate={inView ? { scaleX: 1 } : {}}
       transition={{ duration: 0.7, delay, ease }}
-      style={{ originX: 0 }}
+      style={{ originX }}
       className={className}
     />
+  );
+}
+
+/**
+ * Counts up to a numeric target when scrolled into view.
+ * Preserves any non-numeric prefix/suffix (e.g. "50,000+", "30+").
+ * Honors reduced-motion by showing the final value immediately.
+ */
+export function CountUp({
+  value,
+  duration = 1.8,
+  className,
+}: {
+  value: string;
+  duration?: number;
+  className?: string;
+}) {
+  const match = value.match(/^(\D*)([\d,]+)(.*)$/);
+  const prefix = match?.[1] ?? "";
+  const numStr = match?.[2] ?? "";
+  const suffix = match?.[3] ?? "";
+  const target = numStr ? parseInt(numStr.replace(/,/g, ""), 10) : NaN;
+  const grouped = numStr.includes(",");
+
+  const ref = useRef<HTMLSpanElement>(null);
+  const inView = useInView(ref, { once: true, margin: "-60px" });
+  const reduce = useReducedMotion();
+  const [n, setN] = useState(0);
+
+  useEffect(() => {
+    if (!inView || isNaN(target)) return;
+    if (reduce) {
+      setN(target);
+      return;
+    }
+    let raf = 0;
+    const start = performance.now();
+    const tick = (now: number) => {
+      const t = Math.min((now - start) / (duration * 1000), 1);
+      const eased = 1 - Math.pow(1 - t, 3); // easeOutCubic
+      setN(Math.round(target * eased));
+      if (t < 1) raf = requestAnimationFrame(tick);
+    };
+    raf = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(raf);
+  }, [inView, target, duration, reduce]);
+
+  if (isNaN(target)) return <span className={className}>{value}</span>;
+
+  return (
+    <span ref={ref} className={className}>
+      {prefix}
+      {grouped ? n.toLocaleString("en-US") : n}
+      {suffix}
+    </span>
+  );
+}
+
+/**
+ * Reveals an image with a soft top-to-bottom mask wipe + gentle settle when
+ * scrolled into view. Falls back to a plain fade under reduced-motion.
+ * Apply to a positioned, overflow-hidden container holding a fill image.
+ */
+export function PhotoReveal({
+  children,
+  className,
+  delay = 0,
+}: {
+  children: React.ReactNode;
+  className?: string;
+  delay?: number;
+}) {
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true, margin: "-80px" });
+  const reduce = useReducedMotion();
+
+  const initial = reduce
+    ? { opacity: 0 }
+    : { clipPath: "inset(0 0 100% 0)", scale: 1.06, opacity: 0 };
+  const shown = reduce
+    ? { opacity: 1 }
+    : { clipPath: "inset(0 0 0% 0)", scale: 1, opacity: 1 };
+
+  return (
+    <motion.div
+      ref={ref}
+      initial={initial}
+      animate={inView ? shown : initial}
+      transition={{ duration: 0.9, delay, ease }}
+      className={className}
+    >
+      {children}
+    </motion.div>
   );
 }

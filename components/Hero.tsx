@@ -35,14 +35,16 @@ export default function Hero() {
     >
       {/* Background photo */}
       <div className="absolute inset-0">
-        <Image
-          src="/hero-bg.jpeg"
-          alt=""
-          fill
-          className="object-cover object-[center_47%]"
-          priority
-          quality={90}
-        />
+        <div className="absolute inset-0 animate-kenburns">
+          <Image
+            src="/hero-bg.jpeg"
+            alt=""
+            fill
+            className="object-cover object-[center_47%]"
+            priority
+            quality={90}
+          />
+        </div>
         {/* Layered overlay */}
         <div
           className="absolute inset-0"

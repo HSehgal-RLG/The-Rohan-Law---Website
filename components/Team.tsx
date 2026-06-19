@@ -6,7 +6,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { Mail, X, MapPin, ChevronRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import { FadeUp, StaggerContainer, StaggerItem } from "@/components/ui/animate";
+import { ExpandLine, FadeUp, PhotoReveal, StaggerContainer, StaggerItem } from "@/components/ui/animate";
 
 const team = [
   {
@@ -159,7 +159,8 @@ export default function Team() {
               Meet the People Behind Your Counsel
             </h2>
           </FadeUp>
-          <FadeUp delay={0.2}>
+          <ExpandLine delay={0.2} originX={0.5} className="h-0.5 w-16 bg-maroon mx-auto mb-5" />
+          <FadeUp delay={0.3}>
             <p className="text-navy/60 font-sans text-sm leading-relaxed">
               A small, dedicated team of legal professionals committed to
               delivering thoughtful, partner-level service.
@@ -175,7 +176,7 @@ export default function Team() {
           >
             <div className="grid grid-cols-1 md:grid-cols-[280px_1fr]">
               {/* Photo */}
-              <div className="relative h-72 md:h-auto min-h-[340px] bg-gray-100 overflow-hidden group">
+              <PhotoReveal className="relative h-72 md:h-auto min-h-[340px] bg-gray-100 overflow-hidden group">
                 <Image
                   src={brian.photo!}
                   alt={brian.name}
@@ -184,7 +185,7 @@ export default function Team() {
                   sizes="(max-width: 768px) 100vw, 280px"
                 />
                 <div className="absolute inset-0 bg-navy/0 group-hover:bg-navy/10 transition-colors duration-300" />
-              </div>
+              </PhotoReveal>
 
               {/* Content */}
               <CardContent className="p-6 md:p-10 flex flex-col justify-between gap-6">
@@ -224,7 +225,7 @@ export default function Team() {
           {rest.map((member) => (
             <StaggerItem key={member.name}>
               <Card className="border border-gray-100 shadow-none hover:shadow-md transition-shadow duration-200 rounded-lg overflow-hidden p-0 h-full">
-                <div className="aspect-[3/4] bg-gray-100 flex items-center justify-center overflow-hidden relative">
+                <PhotoReveal className="aspect-[3/4] bg-gray-100 flex items-center justify-center overflow-hidden relative">
                   {member.photo ? (
                     <Image
                       src={member.photo}
@@ -236,7 +237,7 @@ export default function Team() {
                   ) : (
                     <PersonSilhouette />
                   )}
-                </div>
+                </PhotoReveal>
                 <CardContent className="p-5">
                   <h3 className="font-serif text-navy text-base font-semibold leading-snug">
                     {member.name}

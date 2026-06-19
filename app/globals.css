@@ -108,3 +108,34 @@
     outline-offset: 2px;
   }
 }
+
+/* Hero "Ken Burns" slow zoom */
+@keyframes kenburns {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.1);
+  }
+}
+.animate-kenburns {
+  animation: kenburns 24s ease-in-out infinite alternate;
+  transform-origin: center 47%;
+  will-change: transform;
+}
+
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .animate-kenburns,
+  .animate-bounce {
+    animation: none !important;
+  }
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+  }
+}

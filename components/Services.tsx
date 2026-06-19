@@ -5,7 +5,7 @@ import { Briefcase, Building2, FileText, BookOpen, Car, X, ChevronRight } from "
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { motion, AnimatePresence } from "framer-motion";
-import { FadeUp, StaggerContainer, StaggerItem } from "@/components/ui/animate";
+import { ExpandLine, FadeUp, StaggerContainer, StaggerItem } from "@/components/ui/animate";
 
 const services = [
   {
@@ -422,7 +422,8 @@ export default function Services() {
               Our Practice Areas
             </h2>
           </FadeUp>
-          <FadeUp delay={0.2}>
+          <ExpandLine delay={0.2} originX={0.5} className="h-0.5 w-16 bg-maroon mx-auto mb-5" />
+          <FadeUp delay={0.3}>
             <p className="text-navy/60 font-sans text-base leading-relaxed">
               Click any practice area to explore our full scope of services.
             </p>
@@ -441,12 +442,12 @@ export default function Services() {
               >
               <Card
                 onClick={() => setSelected(service.title)}
-                className="border border-gray-100 shadow-none hover:shadow-lg transition-all duration-200 rounded-lg p-0 cursor-pointer group h-full"
+                className="border border-gray-100 shadow-none hover:shadow-lg hover:border-maroon/30 hover:-translate-y-1 transition-all duration-300 rounded-lg p-0 cursor-pointer group h-full"
               >
                 <CardContent className="p-7 flex flex-col gap-4">
                   <div className="flex items-start justify-between gap-4">
-                    <div className="bg-navy/5 rounded-full p-3 flex-shrink-0 group-hover:bg-navy/10 transition-colors">
-                      <Icon size={28} className="text-navy" aria-hidden="true" />
+                    <div className="bg-navy/5 rounded-full p-3 flex-shrink-0 group-hover:bg-maroon transition-colors duration-300">
+                      <Icon size={28} className="text-navy group-hover:text-white transition-colors duration-300" aria-hidden="true" />
                     </div>
                     <Badge className="bg-maroon text-white hover:bg-maroon-dark text-[0.65rem] uppercase tracking-wide rounded-none px-2.5 py-1 h-auto flex-shrink-0">
                       {service.badge}

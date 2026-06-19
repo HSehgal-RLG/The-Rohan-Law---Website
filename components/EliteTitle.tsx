@@ -4,7 +4,7 @@ import Image from "next/image";
 import { Card, CardContent } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { Mail, Shield } from "lucide-react";
-import { FadeUp, SlideInLeft, SlideInRight, StaggerContainer, StaggerItem } from "@/components/ui/animate";
+import { ExpandLine, FadeUp, PhotoReveal, SlideInLeft, SlideInRight, StaggerContainer, StaggerItem } from "@/components/ui/animate";
 
 const titleTeam = [
   {
@@ -39,10 +39,11 @@ export default function EliteTitle() {
               </p>
             </FadeUp>
             <FadeUp delay={0.1}>
-              <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-white leading-tight mb-6">
+              <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-white leading-tight mb-5">
                 Elite Title &amp; Abstract LLC
               </h2>
             </FadeUp>
+            <ExpandLine delay={0.2} className="h-0.5 w-16 bg-maroon-light mb-6" />
             <div className="space-y-4 text-white/65 font-sans text-sm leading-relaxed">
               <FadeUp delay={0.2}>
                 <p>
@@ -126,7 +127,7 @@ export default function EliteTitle() {
           {titleTeam.map((member) => (
             <StaggerItem key={member.name}>
               <Card className="border border-white/10 bg-white/5 shadow-none hover:bg-white/10 transition-colors duration-200 rounded-lg overflow-hidden p-0 h-full">
-                <div className="relative aspect-[3/4]">
+                <PhotoReveal className="relative aspect-[3/4] overflow-hidden">
                   <Image
                     src={member.photo}
                     alt={member.name}
@@ -134,7 +135,7 @@ export default function EliteTitle() {
                     className="object-cover object-top saturate-[0.92] contrast-[1.03]"
                     sizes="(max-width: 640px) 100vw, 50vw"
                   />
-                </div>
+                </PhotoReveal>
                 <CardContent className="p-5">
                   <h4 className="font-serif text-white text-base font-semibold leading-snug">
                     {member.name}

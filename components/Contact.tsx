@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { Phone, MapPin } from "lucide-react";
-import { FadeUp, SlideInLeft, SlideInRight } from "@/components/ui/animate";
+import { ExpandLine, FadeUp, SlideInLeft, SlideInRight } from "@/components/ui/animate";
 
 const MAX_WORDS = 50;
 
@@ -73,11 +73,12 @@ export default function Contact() {
               </p>
             </FadeUp>
             <FadeUp delay={0.1}>
-              <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-navy leading-tight mb-6">
+              <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-navy leading-tight mb-5">
                 We&apos;d Like to Hear From You
               </h2>
             </FadeUp>
-            <FadeUp delay={0.2}>
+            <ExpandLine delay={0.2} className="h-0.5 w-16 bg-maroon mb-6" />
+            <FadeUp delay={0.3}>
               <p className="text-navy/70 font-sans text-sm leading-relaxed mb-8">
                 Reach out to discuss your legal needs. We respond promptly to all
                 inquiries and offer initial consultations for new clients.
