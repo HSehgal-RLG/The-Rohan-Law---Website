@@ -215,12 +215,11 @@ export function PhotoReveal({
   const inView = useInView(ref, { once: true, margin: "-80px" });
   const reduce = useReducedMotion();
 
-  const initial = reduce
-    ? { opacity: 0 }
-    : { clipPath: "inset(0 0 100% 0)", scale: 1.06, opacity: 0 };
-  const shown = reduce
-    ? { opacity: 1 }
-    : { clipPath: "inset(0 0 0% 0)", scale: 1, opacity: 1 };
+  // Opacity-based reveal (with a gentle settle) — the same reliable technique
+  // used elsewhere on the site. Avoids clip-path, which failed to animate on
+  // Chrome (Windows/Android) and left photos stuck hidden.
+  const initial = reduce ? { opacity: 0 } : { opacity: 0, scale: 1.04 };
+  const shown = { opacity: 1, scale: 1 };
 
   return (
     <motion.div
