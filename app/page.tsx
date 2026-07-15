@@ -1,6 +1,7 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
+import VideoSection from "@/components/VideoSection";
 import Team from "@/components/Team";
 import Services from "@/components/Services";
 import EliteTitle from "@/components/EliteTitle";
@@ -15,6 +16,7 @@ export default function Home() {
       <Navbar />
       <Hero />
       <About />
+      <VideoSection />
       <Team />
       <Services />
       <EliteTitle />

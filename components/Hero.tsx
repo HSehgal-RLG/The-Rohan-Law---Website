@@ -1,8 +1,10 @@
 "use client";
 
-import { ChevronDown } from "lucide-react";
+import { useState } from "react";
+import { ChevronDown, Play } from "lucide-react";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import VideoLightbox from "@/components/VideoLightbox";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
@@ -28,6 +30,8 @@ function HeroItem({
 }
 
 export default function Hero() {
+  const [videoOpen, setVideoOpen] = useState(false);
+
   return (
     <section
       id="hero"
@@ -115,6 +119,15 @@ export default function Hero() {
             >
               Learn More
             </a>
+            <button
+              onClick={() => setVideoOpen(true)}
+              className="inline-flex items-center justify-center gap-2.5 border border-white/40 hover:border-white text-white hover:bg-white/10 px-8 py-3 text-xs uppercase tracking-widest transition-all duration-200 font-sans cursor-pointer"
+            >
+              <span className="flex items-center justify-center w-5 h-5 rounded-full bg-maroon flex-shrink-0">
+                <Play size={9} className="ml-0.5 fill-white text-white" aria-hidden="true" />
+              </span>
+              Watch Our Video
+            </button>
           </div>
         </HeroItem>
       </div>
@@ -128,6 +141,9 @@ export default function Hero() {
       >
         <ChevronDown size={28} aria-hidden="true" />
       </motion.div>
+
+      {/* Video lightbox */}
+      <VideoLightbox open={videoOpen} onClose={() => setVideoOpen(false)} />
     </section>
   );
 }
