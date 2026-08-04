@@ -51,7 +51,6 @@ export default function GuidePlayer({
           onClick={() => {
             if (!configured) return;
             setStartedFromCover(true);
-            onStart();
           }}
           disabled={!configured}
           aria-label={configured ? `Play the ${title} playlist` : `${title} — coming soon`}

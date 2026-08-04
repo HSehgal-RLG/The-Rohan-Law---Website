@@ -42,10 +42,6 @@ export function playlistUrl(playlistId: string): string {
   return `https://www.youtube.com/playlist?list=${playlistId}`;
 }
 
-export function watchUrl(videoId: string, playlistId: string): string {
-  return `https://www.youtube.com/watch?v=${videoId}&list=${playlistId}`;
-}
-
 export const buyersGuide: Guide = {
   id: "buyers",
   eyebrow: "For Home Buyers",
