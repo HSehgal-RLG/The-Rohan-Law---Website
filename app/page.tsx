@@ -4,6 +4,8 @@ import About from "@/components/About";
 import VideoSection from "@/components/VideoSection";
 import Team from "@/components/Team";
 import Services from "@/components/Services";
+import GuideSection from "@/components/GuideSection";
+import { buyersGuide, sellersGuide } from "@/lib/guides";
 import EliteTitle from "@/components/EliteTitle";
 import Testimonials from "@/components/Testimonials";
 import Location from "@/components/Location";
@@ -19,6 +21,8 @@ export default function Home() {
       <VideoSection />
       <Team />
       <Services />
+      <GuideSection guide={buyersGuide} bg="cream" />
+      <GuideSection guide={sellersGuide} bg="white" reverse />
       <EliteTitle />
       <Testimonials />
       <Location />
