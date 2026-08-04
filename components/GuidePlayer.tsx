@@ -5,30 +5,41 @@ import Image from "next/image";
 import { Play, ListVideo } from "lucide-react";
 
 /**
- * Click-to-load YouTube playlist player.
+ * Click-to-load YouTube player for a guide section.
  *
- * The iframe is only mounted once the visitor presses play, so the page never
- * pays for YouTube's player bundle on load. Playback runs through
- * youtube-nocookie.com so nothing is set until the visitor opts in.
+ * The iframe is only mounted once the visitor presses play or picks a video
+ * from a heading, so the page never pays for YouTube's player bundle on load.
+ * Playback runs through youtube-nocookie.com so nothing is set until the
+ * visitor opts in.
  */
-export default function YouTubePlaylist({
+export default function GuidePlayer({
   playlistId,
+  videoId,
   title,
   cover,
   configured,
 }: {
   playlistId: string;
+  /** When set, the player shows this video instead of the playlist cover. */
+  videoId: string | null;
   title: string;
   cover?: string;
   configured: boolean;
 }) {
-  const [active, setActive] = useState(false);
+  const [startedFromCover, setStartedFromCover] = useState(false);
+  const playing = Boolean(videoId) || startedFromCover;
+
+  const src = videoId
+    ? `https://www.youtube-nocookie.com/embed/${videoId}?list=${playlistId}&autoplay=1&rel=0`
+    : `https://www.youtube-nocookie.com/embed/videoseries?list=${playlistId}&autoplay=1&rel=0`;
 
   return (
     <div className="relative aspect-video w-full overflow-hidden rounded-xl bg-navy-dark shadow-2xl ring-1 ring-navy/15">
-      {active ? (
+      {playing ? (
         <iframe
-          src={`https://www.youtube-nocookie.com/embed/videoseries?list=${playlistId}&autoplay=1&rel=0`}
+          // Remount on change so picking another heading actually switches video.
+          key={videoId ?? "playlist"}
+          src={src}
           title={title}
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           allowFullScreen
@@ -37,7 +48,11 @@ export default function YouTubePlaylist({
       ) : (
         <button
           type="button"
-          onClick={() => configured && setActive(true)}
+          onClick={() => {
+            if (!configured) return;
+            setStartedFromCover(true);
+            onStart();
+          }}
           disabled={!configured}
           aria-label={configured ? `Play the ${title} playlist` : `${title} — coming soon`}
           className={`group absolute inset-0 h-full w-full ${

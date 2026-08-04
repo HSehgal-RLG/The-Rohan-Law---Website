@@ -1,6 +1,7 @@
 "use client";
 
-import { ArrowUpRight } from "lucide-react";
+import { useState } from "react";
+import { ArrowUpRight, Play } from "lucide-react";
 import {
   ExpandLine,
   FadeUp,
@@ -9,7 +10,7 @@ import {
   StaggerContainer,
   StaggerItem,
 } from "@/components/ui/animate";
-import YouTubePlaylist from "@/components/YouTubePlaylist";
+import GuidePlayer from "@/components/GuidePlayer";
 import { isConfigured, playlistUrl, type Guide } from "@/lib/guides";
 
 export default function GuideSection({
@@ -23,9 +24,16 @@ export default function GuideSection({
   reverse?: boolean;
 }) {
   const configured = isConfigured(guide.playlistId);
+  const [activeVideo, setActiveVideo] = useState<string | null>(null);
 
   const Copy = reverse ? SlideInRight : SlideInLeft;
   const Player = reverse ? SlideInLeft : SlideInRight;
+
+  // Fall back to the first video's thumbnail as the playlist cover.
+  const firstVideo = guide.points[0]?.videos[0];
+  const cover =
+    guide.cover ??
+    (firstVideo ? `https://i.ytimg.com/vi/${firstVideo.id}/maxresdefault.jpg` : undefined);
 
   return (
     <section id={guide.id} className={bg === "cream" ? "bg-cream" : "bg-white"}>
@@ -50,13 +58,35 @@ export default function GuideSection({
               </p>
             </FadeUp>
 
-            <StaggerContainer className="space-y-3">
-              {guide.points.map((heading) => (
-                <StaggerItem key={heading}>
-                  <div className="border-l-2 border-maroon bg-navy/[0.03] py-3 px-4">
-                    <span className="font-serif text-lg sm:text-xl text-navy leading-snug">
-                      {heading}
-                    </span>
+            <StaggerContainer className="space-y-4">
+              {guide.points.map((point) => (
+                <StaggerItem key={point.heading}>
+                  <div className="border-l-2 border-maroon bg-navy/[0.03] py-4 px-5">
+                    <h3 className="font-serif text-lg sm:text-xl text-navy leading-snug mb-3">
+                      {point.heading}
+                    </h3>
+                    <div className="flex flex-wrap gap-2">
+                      {point.videos.map((video) => {
+                        const isActive = activeVideo === video.id;
+                        return (
+                          <button
+                            key={video.id}
+                            type="button"
+                            onClick={() => setActiveVideo(video.id)}
+                            title={video.title}
+                            aria-label={`Play: ${video.title}`}
+                            className={`inline-flex items-center gap-2 px-4 py-2 text-xs uppercase tracking-widest font-sans transition-colors duration-150 cursor-pointer ${
+                              isActive
+                                ? "bg-navy text-white"
+                                : "bg-maroon hover:bg-maroon-dark text-white"
+                            }`}
+                          >
+                            <Play size={12} fill="currentColor" />
+                            {video.label ? `Watch ${video.label}` : "Watch"}
+                          </button>
+                        );
+                      })}
+                    </div>
                   </div>
                 </StaggerItem>
               ))}
@@ -68,9 +98,9 @@ export default function GuideSection({
                   href={playlistUrl(guide.playlistId)}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-8 inline-flex items-center gap-2 bg-maroon hover:bg-maroon-dark text-white text-xs uppercase tracking-widest px-6 py-3 transition-colors duration-150 font-sans"
+                  className="mt-8 inline-flex items-center gap-2 border border-navy/25 hover:border-navy text-navy text-xs uppercase tracking-widest px-6 py-3 transition-colors duration-150 font-sans"
                 >
-                  Watch the {guide.playlistTitle} Playlist
+                  View the full {guide.playlistTitle} playlist on YouTube
                   <ArrowUpRight size={15} />
                 </a>
               </FadeUp>
@@ -80,15 +110,16 @@ export default function GuideSection({
           {/* Player */}
           <Player delay={0.15} className={reverse ? "lg:order-1" : "lg:order-2"}>
             <div className="lg:sticky lg:top-28">
-              <YouTubePlaylist
+              <GuidePlayer
                 playlistId={guide.playlistId}
+                videoId={activeVideo}
                 title={guide.playlistTitle}
-                cover={guide.cover}
+                cover={cover}
                 configured={configured}
               />
               <p className="mt-4 text-center text-navy/50 font-sans text-xs leading-relaxed">
                 {configured
-                  ? "Plays here — the video player only loads when you press play."
+                  ? "Choose a topic to play it here — the video player only loads when you press play."
                   : "This playlist will appear here once it is published."}
               </p>
             </div>
