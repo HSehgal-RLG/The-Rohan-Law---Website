@@ -5,7 +5,8 @@ export type Guide = {
   title: string;
   playlistTitle: string;
   intro: string;
-  points: [string, string][];
+  /** Short headings only — the intro carries the explanation. */
+  points: string[];
   /**
    * YouTube playlist id from the channel's playlist URL — the value after
    * `list=` in https://www.youtube.com/playlist?list=...
@@ -36,33 +37,8 @@ export const buyersGuide: Guide = {
   title: "The Buyer's Guide",
   playlistTitle: "Buyer's Guide",
   intro:
-    "For most people a home purchase is the single largest financial decision of their lives. The Buyer's Guide playlist walks through the transaction the way the firm walks clients through it — one step at a time, in plain language, from accepted offer to closing table.",
-  points: [
-    [
-      "Contract Review & Attorney Approval",
-      "What the attorney approval period actually protects, and what gets revised before you are bound.",
-    ],
-    [
-      "Negotiating Terms",
-      "How offers, counteroffers, and conditions are shaped to protect your position.",
-    ],
-    [
-      "Inspection & Mortgage Contingencies",
-      "The deadlines that matter, and what happens when a contingency cannot be met.",
-    ],
-    [
-      "Title Insurance, Explained",
-      "The difference between the lender's policy and the owner's policy, and why you want both.",
-    ],
-    [
-      "Closing Costs & the Closing Table",
-      "What you bring, what you sign, and what to expect on the day itself.",
-    ],
-    [
-      "Buyer's Agent Representation",
-      "Establishing a dedicated buyer's agent relationship so your interests are independently represented.",
-    ],
-  ],
+    "To educate homebuyers — and especially first-time homebuyers — the firm has prepared informational pieces on the two most important provisions in a purchase contract: the inspection contingency and the mortgage contingency. As part of the representation, our goal is to ensure that wherever we are in the transaction, the buyer remains involved and properly educated.",
+  points: ["Inspection Contingency", "Mortgage Contingency"],
   playlistId: "REPLACE_WITH_BUYERS_PLAYLIST_ID",
 };
 
@@ -72,32 +48,11 @@ export const sellersGuide: Guide = {
   title: "The Seller's Guide",
   playlistTitle: "Seller's Guide",
   intro:
-    "Selling carries obligations that are easy to underestimate and expensive to get wrong. The Seller's Guide playlist covers the disclosures, deadlines, and title issues that decide whether a sale closes cleanly — and what the firm handles on your behalf at each stage.",
+    "For sellers, the firm has prepared informational pieces on the three matters that most often shape a sale: the cooperating broker's compensation, the Property Condition Disclosure Statement, and the documents needed for closing. As part of the representation, our goal is to ensure that wherever we are in the transaction, the seller remains involved and properly educated.",
   points: [
-    [
-      "Property Condition Disclosure",
-      "Preparing a complete, legally compliant disclosure statement that minimizes future liability.",
-    ],
-    [
-      "Reviewing & Countering Offers",
-      "Reading an offer for more than price, and responding on terms that hold up.",
-    ],
-    [
-      "“As-Is” Sales",
-      "The distinct legal considerations of an as-is transaction, and what it does and does not shield you from.",
-    ],
-    [
-      "Occupancy Agreements",
-      "Managing the gap when your closing date and your move-out date do not align.",
-    ],
-    [
-      "Payoffs, Liens & Clearing Title",
-      "Resolving title defects early so they do not surface days before closing.",
-    ],
-    [
-      "Net Proceeds & Timeline",
-      "What actually reaches you at closing, and when to expect it.",
-    ],
+    "Cooperating Broker's Compensation",
+    "Property Condition Disclosure Statement",
+    "Documents Needed for Closing",
   ],
   playlistId: "REPLACE_WITH_SELLERS_PLAYLIST_ID",
 };

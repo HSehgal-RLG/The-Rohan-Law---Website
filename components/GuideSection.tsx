@@ -51,15 +51,11 @@ export default function GuideSection({
             </FadeUp>
 
             <StaggerContainer className="space-y-3">
-              {guide.points.map(([heading, desc]) => (
+              {guide.points.map((heading) => (
                 <StaggerItem key={heading}>
-                  <div className="flex items-start gap-3">
-                    <span className="text-maroon flex-shrink-0 text-sm leading-relaxed">
-                      •
-                    </span>
-                    <span className="text-navy/70 font-sans text-sm leading-relaxed">
-                      <span className="font-semibold text-navy">{heading} — </span>
-                      {desc}
+                  <div className="border-l-2 border-maroon bg-navy/[0.03] py-3 px-4">
+                    <span className="font-serif text-lg sm:text-xl text-navy leading-snug">
+                      {heading}
                     </span>
                   </div>
                 </StaggerItem>
